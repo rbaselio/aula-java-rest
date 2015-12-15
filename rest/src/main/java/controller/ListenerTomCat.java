@@ -10,6 +10,7 @@ import utils.EntityManagerUtil;
 
 public class ListenerTomCat implements ServletContextAttributeListener, ServletContextListener {
 
+	@SuppressWarnings("unused")
 	private ServletContext context = null;
 
 	// This method is invoked when an attribute
