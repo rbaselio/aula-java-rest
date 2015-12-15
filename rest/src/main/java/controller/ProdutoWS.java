@@ -11,19 +11,21 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import DAO.ProdutoDAO;
 import exception.InvalidModelException;
 import model.Produto;
-import service.ProdutoService;
+import service.Service;
 
 @Path("/produto")
 public class ProdutoWS {	
-	ProdutoService service = new ProdutoService();
+	
+	private Service<ProdutoDAO, Produto> service;
 
 	@Path("/create")
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public void create(Produto entity) {
-		service.persist(entity);
+	public void create(Produto entity) throws InvalidModelException {
+		service.getDao(entity).persist(entity);
 	}
 
 	
@@ -31,7 +33,7 @@ public class ProdutoWS {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/find/{id}")
 	public Produto find(@PathParam("id") Integer id) {
-		return service.findById(id.longValue());
+		return service.getDao().findById(id);
 	}
 
 	
@@ -39,7 +41,7 @@ public class ProdutoWS {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/findAll")
 	public List<Produto> findAll() {
-		return service.findAll(0, 0);
+		return service.getDao().findAll(0, 0);
 	}
 
 	
@@ -47,7 +49,7 @@ public class ProdutoWS {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/update")
 	public void update(Produto entity) throws InvalidModelException {
-		service.update(entity);
+		service.getDao(entity).update(entity);
 	}
 
 	
@@ -55,7 +57,7 @@ public class ProdutoWS {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/delete")
 	public void delete(Produto entity) {
-		service.remove(entity);
+		service.getDao().remove(entity);
 	}
 
 }

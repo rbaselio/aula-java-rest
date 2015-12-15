@@ -1,4 +1,4 @@
-package service;
+package DAO;
 
 import java.util.List;
 import java.util.Map;
@@ -9,12 +9,13 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import model.Model;
 import utils.EntityManagerUtil;
 
-public class BaseService<T, E> {
+public class BaseDAO<E extends Model> {
 	protected Class<E> entityClass;
 
-	public E findById(T id) {
+	public E findById(Integer id) {
 		return getEm().find(entityClass, id);
 	}
 
@@ -86,7 +87,7 @@ public class BaseService<T, E> {
 		}
 	}
 
-	public void removeById(T id) {
+	public void removeById(Integer id) {
 		StringBuffer jpql = new StringBuffer();
 		jpql.append("DELETE FROM ");
 		jpql.append(entityClass.getSimpleName());

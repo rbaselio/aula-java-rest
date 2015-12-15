@@ -1,4 +1,4 @@
-package service;
+package DAO;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -10,8 +10,8 @@ import javax.persistence.TypedQuery;
 import model.Cliente;
 import model.Venda;
 
-public class VendaService extends BaseService<Long, Venda> {
-	public VendaService() {
+public class VendaDAO extends BaseDAO<Venda> {
+	public VendaDAO() {
 		this.entityClass = Venda.class;
 	}
 

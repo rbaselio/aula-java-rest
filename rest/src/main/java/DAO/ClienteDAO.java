@@ -1,4 +1,4 @@
-package service;
+package DAO;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import javax.persistence.TypedQuery;
 import model.Cliente;
 import utils.Estado;
 
-public class ClienteService extends BaseService<Long, Cliente> {
+public class ClienteDAO extends BaseDAO<Cliente> {
 
-	public ClienteService() {
+	public ClienteDAO() {
 		this.entityClass = Cliente.class;
 	}
 

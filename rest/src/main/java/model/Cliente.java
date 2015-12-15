@@ -18,11 +18,11 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @SuppressWarnings("unused")
 @XmlRootElement
 @Entity
-public class Cliente {
+public class Cliente implements Model{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@Column
 	private String nome;
@@ -39,11 +39,11 @@ public class Cliente {
 	@Embedded
 	private CPF cpf;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -80,8 +80,6 @@ public class Cliente {
 	}
 	
 	
-
-	
 	private CPF getCpf() {
 		return cpf;
 	}
@@ -101,5 +99,7 @@ public class Cliente {
 	public String toString() {
 		return "Cliente [id=" + id + ", nome=" + nome + "] - " + endereco.toString();
 	}
+
+	
 	
 }

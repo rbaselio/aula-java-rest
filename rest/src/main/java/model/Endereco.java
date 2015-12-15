@@ -21,6 +21,10 @@ public class Endereco {
 	
 	@Column
 	private String logradouro;
+	
+	@Column
+	private String bairro;
+	
 	@Column
 	private String cidade;
 	
@@ -30,6 +34,12 @@ public class Endereco {
 	
 	
 	
+	public String getBairro() {
+		return bairro;
+	}
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
 	public Estado getEstado() {
 		return estado;
 	}

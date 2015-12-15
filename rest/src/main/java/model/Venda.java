@@ -19,10 +19,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
-public class Venda {
+public class Venda implements Model{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@Column
 	private BigDecimal valortotal = new BigDecimal(0);
@@ -42,11 +42,11 @@ public class Venda {
 		itemVendas = new HashSet<ItemVenda>();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
