@@ -1,27 +1,43 @@
 package model;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
-public class Produto implements Model{
+public class Produto implements Model {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column
 	private String nome;
+	@Column
 	private BigDecimal valor;
+	@Column
+	private Byte[] foto;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "categoria_id")
+	private Set<Categoria> categorias;
 
 	public Produto() {
 
 	}
 
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
-	
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -41,6 +57,24 @@ public class Produto implements Model{
 
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
+	}
+
+	public Set<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(Set<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+	
+	
+
+	public Byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Byte[] foto) {
+		this.foto = foto;
 	}
 
 	public static Builder builder() {
@@ -82,7 +116,5 @@ public class Produto implements Model{
 		}
 
 	}
-
-	
 
 }

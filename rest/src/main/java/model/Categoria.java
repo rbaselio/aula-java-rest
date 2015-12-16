@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,19 +9,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
-public class Cliente implements Model{
-	
+public class Categoria implements Model{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column
 	private String nome;
-	
-	@Column
-	private Date nascimento;
-	
-		public Integer getId() {
+
+	public Integer getId() {
 		return id;
 	}
 
@@ -39,25 +33,11 @@ public class Cliente implements Model{
 		this.nome = nome;
 	}
 
-	public Date getNascimento() {
-		return nascimento;
-	}
-
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
-	}
-
-	
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + "]";
-	}
-
+		return "Categoria [id=" + id + ", nome=" + nome + "]";
+	}	
 	
 	
 
-	
-
-	
-	
 }

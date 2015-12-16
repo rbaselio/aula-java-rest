@@ -8,20 +8,20 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import model.Cliente;
-import model.Venda;
+import model.Pedido;
 
-public class VendaDAO extends BaseDAO<Venda> {
+public class VendaDAO extends BaseDAO<Pedido> {
 	public VendaDAO() {
-		this.entityClass = Venda.class;
+		this.entityClass = Pedido.class;
 	}
 
-	public List<Venda> findAll(Integer offset, Integer max) {
+	public List<Pedido> findAll(Integer offset, Integer max) {
 		StringBuilder jpql = new StringBuilder();
 		jpql.append("FROM ");
-		jpql.append(Venda.class.getSimpleName());
+		jpql.append(Pedido.class.getSimpleName());
 		jpql.append(" e JOIN FETCH e.itemVendas");
 
-		TypedQuery<Venda> query = getEm().createQuery(jpql.toString(), Venda.class);
+		TypedQuery<Pedido> query = getEm().createQuery(jpql.toString(), Pedido.class);
 		if (offset != null)
 			query.setFirstResult(offset);
 		if (max != null)
@@ -47,7 +47,7 @@ public class VendaDAO extends BaseDAO<Venda> {
 	public HashMap<Cliente, BigDecimal> totalPorCliente() {
 		StringBuilder jpql = new StringBuilder();
 		jpql.append("SELECT c, SUM(v.valortotal) FROM ");
-		jpql.append(Venda.class.getSimpleName());
+		jpql.append(Pedido.class.getSimpleName());
 		jpql.append(" v JOIN v.cliente c ");
 		jpql.append("GROUP BY c ");
 		jpql.append("ORDER BY c.nome ");
@@ -68,7 +68,7 @@ public class VendaDAO extends BaseDAO<Venda> {
 	public BigDecimal totalCliente(Cliente cliente) {
 		StringBuilder jpql = new StringBuilder();
 		jpql.append("SELECT SUM(v.valortotal) FROM ");
-		jpql.append(Venda.class.getSimpleName());
+		jpql.append(Pedido.class.getSimpleName());
 		jpql.append(" v where v.cliente = :cliente");
 
 		TypedQuery<BigDecimal> query = getEm().createQuery(jpql.toString(), BigDecimal.class);

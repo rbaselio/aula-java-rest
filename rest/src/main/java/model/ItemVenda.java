@@ -21,6 +21,7 @@ public class ItemVenda {
 	@Column(precision = 8, scale = 4, nullable = false)
 	private BigDecimal quantidade;
 
+	
 	public Long getId() {
 		return id;
 	}

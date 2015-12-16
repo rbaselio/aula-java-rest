@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/flaty.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<form id="validation-form" name="form" action="adiciona" class="form-horizontal form-bordered form-row-stripped" method="post">
+		<div class="col-xs-12">
+			<div class="box-content">
+				<div class="row-fluid">
+					<div class="col-sm-0 col-xs-12">
+						<div class="box box-black" id="div_inicio">
+							<div class="box-title col-xs-12">
+								<h3>
+									<i class="fa  fa-users glyphicon glyphicon-gift"> </i> Cadastro de Categorias
+								</h3>
+							</div>
+							<div class="box-content">
+								<div class="row-fluid">
+									<div class="col-xs-12">
+										<div class="form-group">
+											<label for="labelmat" class="col-sm-2 col-xs-2 control-label">Codigo:</label>
+											<div class="col-sm-2 col-xs-2 controls ">
+												<input type="number" name="codigo" id="codigo" min="0" max="99999" size="5" class="form-control" required="required"></input>
+											</div>
+											<label for="labelmat" class="col-sm-2 col-xs-2 control-label">Descrição:</label>
+											<div class="col-sm-6 col-xs-6 controls ">
+												<input type="text" name="nome" id="nome" maxlength="50" size="50" class="form-control" required="required"></input>
+											</div>
+										</div>										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

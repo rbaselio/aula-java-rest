@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
-public class Venda implements Model{
+public class Pedido implements Model{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -35,10 +35,9 @@ public class Venda implements Model{
 	
 	@OneToMany (cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "venda_id")
-	
 	private Set<ItemVenda> itemVendas;
 	
-	public Venda(){
+	public Pedido(){
 		itemVendas = new HashSet<ItemVenda>();
 	}
 
@@ -98,6 +97,10 @@ public class Venda implements Model{
 				+ ", itemVendas=" + itemVendas + ", getCliente()=" + getCliente() + ", getItemVendas()="
 				+ getItemVendas() + "]";
 	}
+	
+	
+	
+	
 	
 	
 	
