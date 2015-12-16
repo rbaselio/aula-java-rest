@@ -35,10 +35,10 @@ public class Pedido implements Model{
 	
 	@OneToMany (cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "venda_id")
-	private Set<ItemVenda> itemVendas;
+	private Set<ItemPedido> itemVendas;
 	
 	public Pedido(){
-		itemVendas = new HashSet<ItemVenda>();
+		itemVendas = new HashSet<ItemPedido>();
 	}
 
 	public Integer getId() {
@@ -73,20 +73,20 @@ public class Pedido implements Model{
 		this.cliente = cliente;
 	}
 
-	public Set<ItemVenda> getItemVendas() {
+	public Set<ItemPedido> getItemVendas() {
 		return itemVendas;
 	}
 
-	public void addItemVendas(ItemVenda itens) {
+	public void addItemVendas(ItemPedido itens) {
 		itemVendas.add(itens);
-		for (ItemVenda itemVenda : itemVendas) {
+		for (ItemPedido itemVenda : itemVendas) {
 			setValortotal(getValortotal().add(itemVenda.getProduto().getValor().multiply(itemVenda.getQuantidade())));
 		}
 	}
 	
-	public void removeItemVendas(ItemVenda itens) {
+	public void removeItemVendas(ItemPedido itens) {
 		itemVendas.remove(itens);
-		for (ItemVenda itemVenda : itemVendas) {
+		for (ItemPedido itemVenda : itemVendas) {
 			setValortotal(getValortotal().add(itemVenda.getProduto().getValor().multiply(itemVenda.getQuantidade())));
 		}
 	}

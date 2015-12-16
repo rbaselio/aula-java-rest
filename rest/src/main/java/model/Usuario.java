@@ -1,10 +1,16 @@
 package model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -20,6 +26,10 @@ public class Usuario implements Model{
 	private String email;
 	@Column
 	private String senha;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "permissao_id")
+	private Set<Permisao> permissoes;
 	
 	
 	public Integer getId() {
@@ -46,6 +56,13 @@ public class Usuario implements Model{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public Set<Permisao> getPermissoes() {
+		return permissoes;
+	}
+	public void setPermissoes(Set<Permisao> permissoes) {
+		this.permissoes = permissoes;
+	}
+	
 	
 	
 	
