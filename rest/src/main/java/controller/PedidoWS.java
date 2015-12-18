@@ -11,15 +11,15 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import DAO.VendaDAO;
+import DAO.PedidoDAO;
 import exception.InvalidModelException;
 import model.Pedido;
 import service.Service;
 
 
 @Path("/venda")
-public class VendaWS {
-	private Service<VendaDAO, Pedido> service;
+public class PedidoWS {
+	private Service<PedidoDAO, Pedido> service = new Service<PedidoDAO, Pedido> (PedidoDAO.class);
 
 	@Path("/create")
 	@POST

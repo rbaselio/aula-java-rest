@@ -2,12 +2,12 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -25,11 +25,10 @@ public class Cliente implements Model{
 	@Column
 	private Date nascimento;
 	
-	@OneToOne
-	@JoinColumn(name = "usuario_id")
+	@OneToOne (cascade = CascadeType.PERSIST)
 	private Usuario usuario;
 	
-		public Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -52,9 +51,6 @@ public class Cliente implements Model{
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
-
-	
-	
 	
 	public Usuario getUsuario() {
 		return usuario;

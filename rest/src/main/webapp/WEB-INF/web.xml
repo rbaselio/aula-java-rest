@@ -8,6 +8,30 @@
 	<listener>
 		<listener-class>controller.ListenerTomCat</listener-class>
 	</listener>
+	
+	 <servlet>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <servlet-class>
+            com.sun.jersey.spi.container.servlet.ServletContainer
+        </servlet-class>
+        <init-param>
+            <!-- Definição do leitor dos web services ficarão alocados no pacote abaixo-->
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+
+            <!-- Nome do pacote no seu projeto -->
+            <param-value>controller</param-value>
+        </init-param>
+
+        <!-- Tempo de load -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <!-- Url que deve ser inserida após o contexto para acessar os web services -->
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>   
+	
 
 </web-app>
 

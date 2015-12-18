@@ -10,8 +10,8 @@ import javax.persistence.TypedQuery;
 import model.Cliente;
 import model.Pedido;
 
-public class VendaDAO extends BaseDAO<Pedido> {
-	public VendaDAO() {
+public class PedidoDAO extends BaseDAO<Pedido> {
+	public PedidoDAO() {
 		this.entityClass = Pedido.class;
 	}
 

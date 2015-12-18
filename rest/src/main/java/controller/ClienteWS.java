@@ -20,19 +20,20 @@ import service.Service;
 @Path("/cliente")
 public class ClienteWS {
 
-	private Service<ClienteDAO, Cliente> service;
+	private Service<ClienteDAO, Cliente> service = new Service<ClienteDAO, Cliente>(ClienteDAO.class);
+	
 
 	@Path("/create")
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public void create(Cliente entity) throws InvalidModelException {
-		service.getDao(entity).persist(entity);
+		//service.getDao(entity).persist(entity);
 	}
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/find/{id}")
-	public Cliente find(@PathParam("id") Integer id) {
+	public Cliente find(@PathParam("id") Integer id) throws InvalidModelException {
 		return service.getDao().findById(id);
 	}
 
@@ -47,7 +48,7 @@ public class ClienteWS {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/update")
 	public void update(Cliente entity) throws InvalidModelException {
-		service.getDao(entity).update(entity);
+		//service.getDao(entity).update(entity);
 	}
 
 	@DELETE

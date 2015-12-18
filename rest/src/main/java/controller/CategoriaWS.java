@@ -19,7 +19,8 @@ import service.Service;
 @Path("/categoria")
 public class CategoriaWS {	
 	
-	private Service<CategoriaDAO, Categoria> service;
+	private Service<CategoriaDAO, Categoria> service = new Service<CategoriaDAO, Categoria>(CategoriaDAO.class);
+
 
 	@Path("/create")
 	@POST

@@ -17,9 +17,11 @@ import model.Produto;
 import service.Service;
 
 @Path("/produto")
-public class ProdutoWS {	
+public class ProdutoWS{	
 	
-	private Service<ProdutoDAO, Produto> service;
+	private Service<ProdutoDAO, Produto> service = new Service<ProdutoDAO, Produto>(ProdutoDAO.class);
+
+
 
 	@Path("/create")
 	@POST

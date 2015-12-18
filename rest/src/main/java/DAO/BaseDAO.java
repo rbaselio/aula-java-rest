@@ -14,7 +14,8 @@ import utils.EntityManagerUtil;
 
 public class BaseDAO<E extends Model> {
 	protected Class<E> entityClass;
-
+	
+	
 	public E findById(Integer id) {
 		return getEm().find(entityClass, id);
 	}
