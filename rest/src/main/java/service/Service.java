@@ -32,7 +32,7 @@ public class Service<D, T extends Model> {
 	
 
 	public D getDao(T entity) throws InvalidModelException {
-		return dao;
+		return getDao();
 //		if(validator.validate(entity)) {
 //			return dao;
 //		} else {

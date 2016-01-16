@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="js/angular.js"></script>
+<script src="js/module/cliente.module.js"></script>
+<script src="js/controller/cliente.controller.js"></script>
+<script src="js/service/cliente.service.js"></script>
+ 
+<body ng-app="clienteModule">
+	<div ng-controller= "clienteCtrl">
+	
+		<p>Id:<input ng-model="client.id" /></p>
+		<p>Nome:<input ng-model="client.nome" /> </p>
+		 <input type="date" ng-model="client.nascimento"
+       placeholder="yyyy-MM-dd"  />
+		
+		<button ng-click="create()"> inserir</button>
+		
+	
+	
+	</div>
+		
+	
+	
+	
+</body>
+
+
+</html>

@@ -13,7 +13,7 @@ persistence_2_0.xsd"
 			<property name="javax.persistence.jdbc.user" value="postgres" />
 			<property name="javax.persistence.jdbc.password" value="123" />
 			<property name="javax.persistence.transactionType" value="RESOURCE_LOCAL" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 				
 		</properties>
 	</persistence-unit>

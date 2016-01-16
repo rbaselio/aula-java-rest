@@ -27,7 +27,9 @@ public class ClienteWS {
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public void create(Cliente entity) throws InvalidModelException {
-		//service.getDao(entity).persist(entity);
+		
+		
+		service.getDao(entity).persist(entity);
 	}
 
 	@GET
@@ -48,7 +50,7 @@ public class ClienteWS {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/update")
 	public void update(Cliente entity) throws InvalidModelException {
-		//service.getDao(entity).update(entity);
+		service.getDao(entity).update(entity);
 	}
 
 	@DELETE
